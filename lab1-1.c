@@ -1,3 +1,9 @@
+#/*
+ * 实验内容一：线性表的链式实现
+ *  - 完成线性表抽象数据类型 ADT 的链式存储的设计与实现
+ *  - 利用函数指针调用不同的遍历访问函数
+ */
+
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -61,7 +67,7 @@ void initlist2(linknode *head)
     }
     return m;
 }*/
-
+//求链表长度
 int listlength(linklist p)
 {
     int count=0;
@@ -148,16 +154,16 @@ linknode *listinsert(linklist p,int i,elemtype e)
                 printf("内存空间分配失败");
                 exit(0);
             }       
-        q->next=p->next;
-        p->next=q;
-        q->data=e;
-        return q;
+            q->next=p->next;
+            p->next=q;
+            q->data=e;
+            return q;
         }
     }
     return NULL;
 }
 //删除节点
-int *listdelete(linklist p,int i,elemtype *e)//e来保留一下删除的数据
+int listdelete(linklist p,int i,elemtype *e)//e来保留一下删除的数据
 {
     if(i<1)
         return 0;
@@ -221,7 +227,7 @@ int main()
     listinsert(first,1,666);
     listinsert(first,1,777);
     listinsert(first,1,888);
-    listinsert(first,1,999);
+    listinsert(first,2,999);
     listraverse(first,ptrfunc);
 
     elemtype ei;
